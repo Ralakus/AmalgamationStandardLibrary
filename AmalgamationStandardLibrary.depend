@@ -1,10 +1,11 @@
 # depslib dependency file v1.0
-1525991402 source:d:\dev\git\amalgamationstandardlibrary\main.cpp
+1525997117 source:d:\dev\git\amalgamationstandardlibrary\main.cpp
 	<iostream>
 	"AESL/Utilities/Log.hpp"
 	"AESL/Utilities/Random.hpp"
 	"AESL/Math/Vector/Vector3.hpp"
 	"AESL/Math/Vector/Vector4.hpp"
+	<ctime>
 
 1525916319 d:\dev\git\amalgamationstandardlibrary\aesl\platform\typedef.hpp
 
@@ -28,5 +29,5 @@
 
 1525990953 d:\dev\git\amalgamationstandardlibrary\aesl\math\vector\vector3.hpp
 
-1525990966 d:\dev\git\amalgamationstandardlibrary\aesl\math\vector\vector4.hpp
+1525996996 d:\dev\git\amalgamationstandardlibrary\aesl\math\vector\vector4.hpp
 

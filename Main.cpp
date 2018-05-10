@@ -4,19 +4,17 @@
 #include "AESL/Math/Vector/Vector3.hpp"
 #include "AESL/Math/Vector/Vector4.hpp"
 
+#include <chrono>
+
 using namespace AESL;
+
+using Clock = std::chrono::high_resolution_clock;
 
 int main()
 {
 
-    unsigned long long int Frequency;
-    float InvFreqMilli;
-    QueryPerformanceFrequency( (LARGE_INTEGER*)&Frequency );
-    InvFreqMilli = 1.0f / (float)((double)Frequency / 1000.0);
-
-    unsigned long long int Start;
-    QueryPerformanceCounter( (LARGE_INTEGER*)&Start );
-    unsigned long long int End;
+    auto Start = Clock::now();
+    auto End   = Clock::now();
 
     AE_LOG ("Starting Benchmark...");
 
@@ -32,12 +30,12 @@ int main()
         }
     }
 
-    QueryPerformanceCounter( (LARGE_INTEGER*)&End );
+    End = Clock::now();
 
-    AE_LOG_SUCCESS (("Benchmark completed in: " + std::to_string((float)(End - Start) * InvFreqMilli) + " miliseconds").c_str());
+    AE_LOG_SUCCESS (("Benchmark completed in: " + std::to_string(std::chrono::duration_cast<std::chrono::microseconds>(End - Start).count()) + " microseconds").c_str());
 
     AE_LOG ("Gernating Random Name...");
-    for(size_t i = 0; i < 50; i++){
+    for(size_t i = 0; i < 1; i++){
         AE_LOG((Random::Name(3, 8) + '\n').c_str());
     }
     std::cin.get();

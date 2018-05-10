@@ -37,7 +37,7 @@ namespace AESL { namespace Math {
 		{}
 
 		void operator = (const TVec4& Other) {
-		    memcpy(&m_data, &Other.m_Data, sizeof(MathType) * 4);
+		    memcpy(&m_Data, &Other.m_Data, sizeof(MathType) * 4);
 		}
 
 		~TVector4() {}
