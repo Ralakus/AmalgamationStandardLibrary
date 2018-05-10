@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1525915163 source:d:\dev\git\amalgamationstandardlibrary\main.cpp
+	<iostream>
+	"AESL/Utilities/Log.hpp"
+
+1525914141 d:\dev\git\amalgamationstandardlibrary\aesl\platform\typedef.hpp
+
+1525915203 d:\dev\git\amalgamationstandardlibrary\aesl\utilities\log.hpp
+	"../Platform/Typedef.hpp"
+	<windows.h>
+

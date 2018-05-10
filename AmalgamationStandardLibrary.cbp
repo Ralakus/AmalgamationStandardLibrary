@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="AmalgamationStandardLibrary" />
+		<Option pch_mode="2" />
+		<Option compiler="clang" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/AmalgamationStandardLibrary" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="clang" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/AmalgamationStandardLibrary" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="clang" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Weverything" />
+			<Add option="-std=c++14" />
+		</Compiler>
+		<Unit filename="AESL/Math/MathFunctions.hpp" />
+		<Unit filename="AESL/Math/Matrix/Matrix4x4.hpp" />
+		<Unit filename="AESL/Math/Quaternion/Quaternion.hpp" />
+		<Unit filename="AESL/Math/Vector/Vector2.hpp" />
+		<Unit filename="AESL/Math/Vector/Vector3.hpp" />
+		<Unit filename="AESL/Math/Vector/Vector4.hpp" />
+		<Unit filename="AESL/Platform/Typedef.hpp" />
+		<Unit filename="AESL/Types/Noncopyable.hpp" />
+		<Unit filename="AESL/Types/Singleton.hpp" />
+		<Unit filename="AESL/Utilities/AessetReader.hpp" />
+		<Unit filename="AESL/Utilities/File.hpp" />
+		<Unit filename="AESL/Utilities/Log.hpp" />
+		<Unit filename="AESL/Utilities/Random.hpp" />
+		<Unit filename="AESL/Utilities/Time.hpp" />
+		<Unit filename="Main.cpp" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
