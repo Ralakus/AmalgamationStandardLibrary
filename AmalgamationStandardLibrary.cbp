@@ -50,6 +50,7 @@
 		<Unit filename="AESL/Utilities/Log.hpp" />
 		<Unit filename="AESL/Utilities/Random.hpp" />
 		<Unit filename="AESL/Utilities/Time.hpp" />
+		<Unit filename="AESL/Utilities/Timer.hpp" />
 		<Unit filename="Main.cpp" />
 		<Extensions>
 			<code_completion />

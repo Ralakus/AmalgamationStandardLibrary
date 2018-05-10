@@ -6,6 +6,8 @@
 
 #include <chrono>
 
+#include "AESL/Utilities/Timer.hpp"
+
 using namespace AESL;
 
 using Clock = std::chrono::high_resolution_clock;
@@ -13,8 +15,9 @@ using Clock = std::chrono::high_resolution_clock;
 int main()
 {
 
-    auto Start = Clock::now();
-    auto End   = Clock::now();
+    Timer T;
+
+    T.Start();
 
     AE_LOG ("Starting Benchmark...");
 
@@ -30,9 +33,9 @@ int main()
         }
     }
 
-    End = Clock::now();
+    T.Stop();
 
-    AE_LOG_SUCCESS (("Benchmark completed in: " + std::to_string(std::chrono::duration_cast<std::chrono::microseconds>(End - Start).count()) + " microseconds").c_str());
+    AE_LOG_SUCCESS (("Benchmark completed in: " + std::to_string(T.GetTimeMilli()) + " milliseconds").c_str());
 
     AE_LOG ("Gernating Random Name...");
     for(size_t i = 0; i < 1; i++){

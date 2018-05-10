@@ -27,7 +27,15 @@ using float64 = double;
 
 #endif // __linux__
 
-#define SafeDelete(x) { if(x) { delete x; x = nullptr; } }
+#if defined(__clang__)
+	#define COMPILER_CLANG
+#elif defined(__GNUC__) || defined(__GNUG__)
+	#define COMPILER_GCC
+#elif defined(_MSC_VER)
+	#define COMPILER_MSVC
+#else
+	#define COMPILER_OTHER
+#endif
 
 #ifdef COMPILER_MSVC
 	#define FORCEINLINE __forceinline
@@ -41,6 +49,8 @@ using float64 = double;
 #define LOG_WARNING_STR "[LOG_WARNING]:"
 #define LOG_SUCCESS_STR "[LOG_SUCCESS]:"
 #define LOG_STR         "[LOG]:"
+
+#define SafeDelete(x) { if(x) { delete x; x = nullptr; } }
 
 namespace AESL {
 	template<class Type>
