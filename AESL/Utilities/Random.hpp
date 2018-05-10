@@ -1,4 +1,5 @@
 #include <string>
+#include <time.h>
 
 namespace AESL{
 

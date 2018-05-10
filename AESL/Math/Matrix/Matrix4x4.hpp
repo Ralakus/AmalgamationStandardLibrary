@@ -2,7 +2,7 @@
 
 #include <Core/Math/Vector/Vector4.hpp>
 
-namespace AESL {
+namespace AESL { namespace Math {
 
 	template<class MathType>
 	class Matrix4x4 {
@@ -13,4 +13,4 @@ namespace AESL {
 
 	};
 
-}
+} }

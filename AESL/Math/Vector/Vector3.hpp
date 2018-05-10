@@ -1,4 +1,5 @@
 #pragma once
+
 namespace AESL { namespace Math {
 
 	template<class MathType>
@@ -9,22 +10,22 @@ namespace AESL { namespace Math {
 	public:
 
 		union {
-
 			MathType m_Data[3];
-			MathType X, Y, Z;
-			MathType Yaw, Pitch, Roll;
-
+			struct { MathType X, Y, Z; };
+			struct { MathType Yaw, Pitch, Roll; };
 		};
 
+        template<class... EXArgs>
+        TVector3(MathType X, MathType Y, MathType Z, EXArgs&&... Ex) : m_Data{ X, Y, Z }
+		{}
 		TVector3(MathType X, MathType Y, MathType Z) : m_Data{ X, Y, Z }
 		{}
-
+        TVector3(MathType X, MathType Y) : m_Data{ X, Y, 0 }
+		{}
 		TVector3(MathType Scalar) : m_Data{ Scalar, Scalar, Scalar }
 		{}
-
-		TVector3() : m_Data{ 0,0,0 }
+		TVector3() : m_Data{ 0, 0, 0 }
 		{}
-
 		TVector3(const TVec3& Other) : m_Data{ Other.m_Data[0], Other.m_Data[1], Other.m_Data[2] }
 		{}
 
@@ -75,8 +76,13 @@ namespace AESL { namespace Math {
 		bool operator==(const TVec3& Other) { return (this->X == Other.X && this->Y == Other.Y && this->Z == Other.Z); }
 		bool operator!=(const TVec3& Other) { return !(*this == Other); }
 
-		void operator++() { X++; Y++; Z++; }
-		void operator--() { X--; Y--; Z--; }
+		TVec3 operator++() { X++; Y++; Z++; return *this; }
+		TVec3 operator--() { X--; Y--; Z--; return *this; }
+
+		TVec3& operator++(int) { TVec3 T = *this; ++*this; return T; }
+		TVec3& operator--(int) { TVec3 T = *this; --*this; return T; }
+
+		MathType operator[](size_t Index) { return m_Data[Index]; }
 
 	};
 

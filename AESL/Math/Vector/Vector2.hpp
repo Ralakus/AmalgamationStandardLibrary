@@ -10,10 +10,8 @@ namespace AESL { namespace Math {
 	public:
 
 		union {
-
 			MathType m_Data[2];
-			MathType X, Y;
-
+			struct { MathType X, Y; };
 		};
 
 		TVector2(MathType X, MathType Y) : m_Data{ X, Y}
@@ -22,7 +20,7 @@ namespace AESL { namespace Math {
 		TVector2(MathType Scalar) : m_Data{ Scalar, Scalar }
 		{}
 
-		TVector2() : m_Data{ 0,0 }
+		TVector2() : m_Data{ 0, 0 }
 		{}
 
 		TVector2(const TVec2& Other) : m_Data{ Other.m_Data[0], Other.m_Data[1]}

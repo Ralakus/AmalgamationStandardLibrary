@@ -1,7 +1,11 @@
 #pragma once
 
-namespace AESL {
+namespace AESL { namespace Math {
+
+    class Quaternion :  {
 
 
 
-}
+    };
+
+} }
