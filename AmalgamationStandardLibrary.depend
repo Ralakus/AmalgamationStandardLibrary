@@ -9,3 +9,13 @@
 	"../Platform/Typedef.hpp"
 	<windows.h>
 
+1525911918 source:/home/mikhail/Code/AmalgamationStandardLibrary/Main.cpp
+	<iostream>
+	"AESL/Utilities/Log.hpp"
+
+1525912135 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Utilities/Log.hpp
+	"../Platform/Typedef.hpp"
+	<windows.h>
+
+1525912031 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Platform/Typedef.hpp
+

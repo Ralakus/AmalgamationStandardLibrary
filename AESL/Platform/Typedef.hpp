@@ -14,16 +14,16 @@ using float32 = float;
 using float64 = double;
 
 #if defined(__linux__)
-    #define AE_LINUX   1
+    #define AE_LINUX
 
 #elif defined(_WIN32) || defined(_WIN64)
-    #define AE_WINDOWS 1
+    #define AE_WINDOWS
 
 #elif defined(__APPLE__)
-    #define AE_APPLE   1
+    #define AE_APPLE
 
 #elif defined(BSD)
-    #define AE_BSD     1
+    #define AE_BSD
 
 #endif // __linux__
 
