@@ -2,6 +2,7 @@
 
 #if defined(AE_WINDOWS)
     #include <windows.h>
+    #define AE_TIMER_USE_WINDOWS
 #else
     #include <chrono>
 #endif // AE_Windows
@@ -12,20 +13,20 @@ namespace AESL{
 
         bool m_Running;
 
-        #if defined(AE_WINDOWS)
+        #if defined(AE_TIMER_USE_WINDOWS)
             float m_InvFreqMilli;
             unsigned long long m_Now;
             unsigned long long m_Start;
             unsigned long long m_Frequency;
         #else
             std::chrono::high_resolution_clock::time_point m_Start = std::chrono::high_resolution_clock::now();
-            std::chrono::high_resolution_clock::time_point m_End   = std::chrono::high_resolution_clock::now();
+            mutable std::chrono::high_resolution_clock::time_point m_End   = std::chrono::high_resolution_clock::now();
         #endif
 
     public:
 
         Timer()  {
-            #if defined(AE_WINDOWS)
+            #if defined(AE_TIMER_USE_WINDOWS)
                 QueryPerformanceFrequency( (LARGE_INTEGER*)&m_Frequency );
                 m_InvFreqMilli = 1.0f / (float)((double)m_Frequency / 1000.0);
             #endif
@@ -33,7 +34,7 @@ namespace AESL{
         ~Timer() {}
 
         void Start() {
-            #if defined(AE_WINDOWS)
+            #if defined(AE_TIMER_USE_WINDOWS)
                 QueryPerformanceCounter( (LARGE_INTEGER*)&m_Start );
             #else
                 m_Start = std::chrono::high_resolution_clock::now();
@@ -43,7 +44,7 @@ namespace AESL{
 
         void Stop() {
             if(m_Running){
-                #if defined(AE_WINDOWS)
+                #if defined(AE_TIMER_USE_WINDOWS)
                     QueryPerformanceCounter( (LARGE_INTEGER*)&m_Now );
                 #else
                     m_End = std::chrono::high_resolution_clock::now();
@@ -53,7 +54,7 @@ namespace AESL{
         }
 
         float GetTimeMirco() const{
-            #if defined(AE_WINDOWS)
+            #if defined(AE_TIMER_USE_WINDOWS)
                 if( m_Running )
                 {
                     QueryPerformanceCounter( (LARGE_INTEGER*)&m_Now );
@@ -69,7 +70,7 @@ namespace AESL{
         }
 
         float GetTimeMilli() const {
-            #if defined(AE_WINDOWS)
+            #if defined(AE_TIMER_USE_WINDOWS)
                 if( m_Running )
                 {
                     QueryPerformanceCounter( (LARGE_INTEGER*)&m_Now );

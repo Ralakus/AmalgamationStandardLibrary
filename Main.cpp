@@ -4,8 +4,6 @@
 #include "AESL/Math/Vector/Vector3.hpp"
 #include "AESL/Math/Vector/Vector4.hpp"
 
-#include <chrono>
-
 #include "AESL/Utilities/Timer.hpp"
 
 using namespace AESL;
