@@ -45,6 +45,7 @@ using float64 = double;
 	#define FORCEINLINE inline
 #endif
 
+#define LOG_NOTE_STR     "[LOG_NOTE]:"
 #define LOG_ERROR_STR   "[LOG_ERROR]:"
 #define LOG_WARNING_STR "[LOG_WARNING]:"
 #define LOG_SUCCESS_STR "[LOG_SUCCESS]:"

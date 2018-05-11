@@ -26,9 +26,11 @@ namespace AESL {
 			return content;
 		}
 
-
-		static void WriteToFile(const std::string& Name, std::string& Destination, const std::string& Data) {
-
+		static void WriteToFile(const std::string& NameAndLocation, const std::string& Data, unsigned int Mode = std::ios::app) {
+            std::ofstream OutputFile;
+            OutputFile.open(NameAndLocation, Mode);
+            OutputFile << Data << '\n';
+            OutputFile.close();
 		}
 
 	};

@@ -99,7 +99,7 @@ namespace AESL { namespace Math {
 	};
 
 	template<class MathType>
-	using TVec4 = TVector3<MathType>;
+	using TVec4 = TVector4<MathType>;
 
 	using Vec4 = TVec4<float>;
 	using Vector4 = Vec4;

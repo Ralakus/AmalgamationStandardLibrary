@@ -1,41 +1,54 @@
 #include <iostream>
 #include "AESL/Utilities/Log.hpp"
 #include "AESL/Utilities/Random.hpp"
-#include "AESL/Math/Vector/Vector3.hpp"
 #include "AESL/Math/Vector/Vector4.hpp"
-
+#include "AESL/Utilities/File.hpp"
 #include "AESL/Utilities/Timer.hpp"
 
 using namespace AESL;
 
 int main()
 {
-    Timer T;
+    float Times[25] = {};
+    AE_LOG_NOTE ("Starting 25 benchmarks...");
+    AE_LOG_WARNING ("SIMD optimization not confirmed!\n\n");
+    for(size_t i = 0; i < 25; i++){
+        AE_LOG_NOTE("Benchmark Starting...");
+        Timer T;
+        T.Start();
 
-    T.Start();
+        std::string Name = Random::Name(3, 8);
+        Math::Vector4 V = { 2 , 2 , 2, 2 };
 
-    AE_LOG ("Starting Benchmark...");
-
-    Math::Vector4 V = {5, 5, 5};
-
-    for(float x = 0; x < 100; x++){
-        for(float y = 0; y < 100; y++){
-            for(float z = 0; z < 100; z++){
-                for(float w = 0; w < 100; w++){
-                    V /= { x, y, z, w };
+        for(float x = 1; x < 100; x++){
+            for(float y = 1; y < 100; y++){
+                for(float z = 1; z < 100; z++){
+                    for(float w = 1; w < 100; w++){
+                        V += { i / x, i / y, i / z, i / w };
+                    }
                 }
             }
         }
+
+        T.Stop();
+        Times[i] = T.GetTimeMirco();
+        AE_LOG(("Result: X: " + std::to_string(V.X) + " Y: " + std::to_string(V.Y) + " Z: " + std::to_string(V.Z) + " W: " + std::to_string(V.W)).c_str());
+        AE_LOG_SUCCESS(("Benchmark \"" + Name + "\" completed in " + std::to_string(T.GetTimeMirco()) + " microseconds\n").c_str());
+        File::WriteToFile("BenchmarkLog.txt", "Benchmark \"" + Name + "\" completed in " + std::to_string(T.GetTimeMirco()) + " microseconds");
+        File::WriteToFile("BenchmarkLog.txt", "Result: X: " + std::to_string(V.X) + " Y: " + std::to_string(V.Y) + " Z: " + std::to_string(V.Z) + " W: " + std::to_string(V.W) + '\n');
     }
 
-    T.Stop();
+    printf("\n");
 
-    AE_LOG_SUCCESS (("Benchmark completed in: " + std::to_string(T.GetTimeMirco()) + " microseconds").c_str());
+    float TotalTime = 0.f;
 
-    AE_LOG ("Gernating Random Name...");
-    for(size_t i = 0; i < 1; i++){
-        AE_LOG((Random::Name(3, 8) + '\n').c_str());
+    for(size_t i = 0; i < 25; i++){
+        TotalTime += Times[i];
     }
+
+    AE_LOG_SUCCESS (("Benchmarking done in " + std::to_string(TotalTime) + " microseconds").c_str());
+    AE_LOG_NOTE    ("Press enter to close...");
+
     std::cin.get();
 	return 0;
 }

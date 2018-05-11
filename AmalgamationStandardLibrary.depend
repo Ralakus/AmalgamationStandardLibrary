@@ -1,16 +1,15 @@
 # depslib dependency file v1.0
-1526000864 source:d:\dev\git\amalgamationstandardlibrary\main.cpp
+1526006763 source:d:\dev\git\amalgamationstandardlibrary\main.cpp
 	<iostream>
 	"AESL/Utilities/Log.hpp"
 	"AESL/Utilities/Random.hpp"
-	"AESL/Math/Vector/Vector3.hpp"
 	"AESL/Math/Vector/Vector4.hpp"
-	<chrono>
+	"AESL/Utilities/File.hpp"
 	"AESL/Utilities/Timer.hpp"
 
-1525997824 d:\dev\git\amalgamationstandardlibrary\aesl\platform\typedef.hpp
+1526006200 d:\dev\git\amalgamationstandardlibrary\aesl\platform\typedef.hpp
 
-1525916319 d:\dev\git\amalgamationstandardlibrary\aesl\utilities\log.hpp
+1526006285 d:\dev\git\amalgamationstandardlibrary\aesl\utilities\log.hpp
 	"../Platform/Typedef.hpp"
 	<windows.h>
 
@@ -30,10 +29,13 @@
 
 1526000786 d:\dev\git\amalgamationstandardlibrary\aesl\math\vector\vector3.hpp
 
-1525996996 d:\dev\git\amalgamationstandardlibrary\aesl\math\vector\vector4.hpp
+1526005445 d:\dev\git\amalgamationstandardlibrary\aesl\math\vector\vector4.hpp
 
 1526001456 d:\dev\git\amalgamationstandardlibrary\aesl\utilities\timer.hpp
 	"../Platform/Typedef.hpp"
 	<windows.h>
 	<chrono>
+
+1526005610 d:\dev\git\amalgamationstandardlibrary\aesl\utilities\file.hpp
+	<fstream>
 
