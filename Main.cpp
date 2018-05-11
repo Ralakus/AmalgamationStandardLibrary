@@ -32,7 +32,7 @@ int main()
 
     T.Stop();
 
-    AE_LOG_SUCCESS (("Benchmark completed in: " + std::to_string(T.GetTimeMilli()) + " milliseconds").c_str());
+    AE_LOG_SUCCESS (("Benchmark completed in: " + std::to_string(T.GetTimeMirco()) + " microseconds").c_str());
 
     AE_LOG ("Gernating Random Name...");
     for(size_t i = 0; i < 1; i++){

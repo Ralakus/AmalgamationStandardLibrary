@@ -52,6 +52,22 @@ namespace AESL{
             }
         }
 
+        float GetTimeMirco() const{
+            #if defined(AE_WINDOWS)
+                if( m_Running )
+                {
+                    QueryPerformanceCounter( (LARGE_INTEGER*)&m_Now );
+                }
+                return ((float)(m_Now - m_Start) * m_InvFreqMilli) * 1000.0f;
+            #else
+                if( m_Running )
+                {
+                    Stop();
+                }
+                return std::chrono::duration_cast<std::chrono::microseconds>(End - Start).count();
+            #endif
+        }
+
         float GetTimeMilli() const {
             #if defined(AE_WINDOWS)
                 if( m_Running )
