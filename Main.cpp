@@ -10,18 +10,15 @@
 
 using namespace AESL;
 
-using Clock = std::chrono::high_resolution_clock;
-
 int main()
 {
-
     Timer T;
 
     T.Start();
 
     AE_LOG ("Starting Benchmark...");
 
-    Math::Vector4 V;
+    Math::Vector4 V = {5, 5, 5};
 
     for(float x = 0; x < 100; x++){
         for(float y = 0; y < 100; y++){

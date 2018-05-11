@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1525998702 source:d:\dev\git\amalgamationstandardlibrary\main.cpp
+1526000191 source:d:\dev\git\amalgamationstandardlibrary\main.cpp
 	<iostream>
 	"AESL/Utilities/Log.hpp"
 	"AESL/Utilities/Random.hpp"
@@ -32,8 +32,8 @@
 
 1525996996 d:\dev\git\amalgamationstandardlibrary\aesl\math\vector\vector4.hpp
 
-1525998660 d:\dev\git\amalgamationstandardlibrary\aesl\utilities\timer.hpp
+1526000468 d:\dev\git\amalgamationstandardlibrary\aesl\utilities\timer.hpp
 	"../Platform/Typedef.hpp"
-	<chrono>
 	<windows.h>
+	<chrono>
 
