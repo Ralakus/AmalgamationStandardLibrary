@@ -18,8 +18,8 @@ namespace AESL{
             unsigned long long m_Start;
             unsigned long long m_Frequency;
         #else
-            std::chrono::high_resolution_clock::time_point Start = std::chrono::high_resolution_clock::now();
-            std::chrono::high_resolution_clock::time_point End   = std::chrono::high_resolution_clock::now();
+            std::chrono::high_resolution_clock::time_point m_Start = std::chrono::high_resolution_clock::now();
+            std::chrono::high_resolution_clock::time_point m_End   = std::chrono::high_resolution_clock::now();
         #endif
 
     public:
@@ -36,7 +36,7 @@ namespace AESL{
             #if defined(AE_WINDOWS)
                 QueryPerformanceCounter( (LARGE_INTEGER*)&m_Start );
             #else
-                Start = std::chrono::high_resolution_clock::now();
+                m_Start = std::chrono::high_resolution_clock::now();
             #endif
             m_Running = true;
         }
@@ -46,7 +46,7 @@ namespace AESL{
                 #if defined(AE_WINDOWS)
                     QueryPerformanceCounter( (LARGE_INTEGER*)&m_Now );
                 #else
-                    End = std::chrono::high_resolution_clock::now();
+                    m_End = std::chrono::high_resolution_clock::now();
                 #endif
                 m_Running = false;
             }
@@ -62,9 +62,9 @@ namespace AESL{
             #else
                 if( m_Running )
                 {
-                    Stop();
+                    m_End = std::chrono::high_resolution_clock::now();
                 }
-                return std::chrono::duration_cast<std::chrono::microseconds>(End - Start).count();
+                return std::chrono::duration_cast<std::chrono::microseconds>(m_End - m_Start).count();
             #endif
         }
 
@@ -78,9 +78,9 @@ namespace AESL{
             #else
                 if( m_Running )
                 {
-                    Stop();
+                    m_End = std::chrono::high_resolution_clock::now();
                 }
-                return std::chrono::duration_cast<std::chrono::milliseconds>(End - Start).count();
+                return std::chrono::duration_cast<std::chrono::milliseconds>(m_End - m_Start).count();
             #endif
         }
 
