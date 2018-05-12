@@ -4,7 +4,7 @@
 
 namespace AESL {
 
-	class File {
+	class FileIO {
 
 	public:
 

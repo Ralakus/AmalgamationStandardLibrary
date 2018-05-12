@@ -31,11 +31,11 @@ int main()
         }
 
         T.Stop();
-        Times[i] = T.GetTimeMirco();
+        Times[i] = T.GetTimeMilli();
         AE_LOG(("Result: X: " + std::to_string(V.X) + " Y: " + std::to_string(V.Y) + " Z: " + std::to_string(V.Z) + " W: " + std::to_string(V.W)).c_str());
-        AE_LOG_SUCCESS(("Benchmark \"" + Name + "\" completed in " + std::to_string(T.GetTimeMirco()) + " microseconds\n").c_str());
-        File::WriteToFile("BenchmarkLog.txt", "Benchmark \"" + Name + "\" completed in " + std::to_string(T.GetTimeMirco()) + " microseconds");
-        File::WriteToFile("BenchmarkLog.txt", "Result: X: " + std::to_string(V.X) + " Y: " + std::to_string(V.Y) + " Z: " + std::to_string(V.Z) + " W: " + std::to_string(V.W) + '\n');
+        AE_LOG_SUCCESS(("Benchmark \"" + Name + "\" completed in " + std::to_string(Times[i]) + " milliseconds\n").c_str());
+        FileIO::WriteToFile("BenchmarkLog.txt", "Benchmark \"" + Name + "\" completed in " + std::to_string(Times[i]) + " milliseconds");
+        FileIO::WriteToFile("BenchmarkLog.txt", "Result: X: " + std::to_string(V.X) + " Y: " + std::to_string(V.Y) + " Z: " + std::to_string(V.Z) + " W: " + std::to_string(V.W) + '\n');
     }
 
     printf("\n");
@@ -46,7 +46,7 @@ int main()
         TotalTime += Times[i];
     }
 
-    AE_LOG_SUCCESS (("Benchmarking done in " + std::to_string(TotalTime) + " microseconds").c_str());
+    AE_LOG_SUCCESS (("Benchmarking done in " + std::to_string(TotalTime) + " milliseconds").c_str());
     AE_LOG_NOTE    ("Press enter to close...");
 
     std::cin.get();

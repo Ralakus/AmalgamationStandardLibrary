@@ -43,34 +43,34 @@ namespace AESL { namespace Math {
 		~TVector4() {}
 
 		TVec4& Add(const TVec4& Other) {
-			this->X += Other.X;
-			this->Y += Other.Y;
-			this->Z += Other.Z;
-			this->W += Other.W;
+			this->m_Data[0] += Other.m_Data[0];
+			this->m_Data[1] += Other.m_Data[1];
+			this->m_Data[2] += Other.m_Data[2];
+			this->m_Data[3] += Other.m_Data[3];
 			return *this;
 		}
 
 		TVec4& Subtract(const TVec4& Other) {
-			this->X -= Other.X;
-			this->Y -= Other.Y;
-			this->Z -= Other.Y;
-			this->W -= Other.W;
+			this->m_Data[0] -= Other.m_Data[0];
+			this->m_Data[1] -= Other.m_Data[1];
+			this->m_Data[2] -= Other.m_Data[2];
+			this->m_Data[3] -= Other.m_Data[3];
 			return *this;
 		}
 
 		TVec4& Multiply(const TVec4& Other) {
-			this->X *= Other.X;
-			this->Y *= Other.Y;
-			this->Z *= Other.Z;
-			this->W *= Other.W;
+			this->m_Data[0] *= Other.m_Data[0];
+			this->m_Data[1] *= Other.m_Data[1];
+			this->m_Data[2] *= Other.m_Data[2];
+			this->m_Data[3] *= Other.m_Data[3];
 			return *this;
 		}
 
 		TVec4& Divide(const TVec4& Other) {
-			this->X /= Other.X;
-			this->Y /= Other.Y;
-			this->Z /= Other.Z;
-			this->W /= Other.W;
+			this->m_Data[0] /= Other.m_Data[0];
+			this->m_Data[1] /= Other.m_Data[1];
+			this->m_Data[2] /= Other.m_Data[2];
+			this->m_Data[3] /= Other.m_Data[3];
 			return *this;
 		}
 
@@ -85,10 +85,10 @@ namespace AESL { namespace Math {
 		TVec4& operator/=(const TVec4& Other) { return this->Divide(Other); }
 
 		bool operator==(const TVec4& Other) {
-			return (this->X == Other.X
-				 && this->Y == Other.Y
-				 && this->Z == Other.Z
-				 && this->W == Other.W
+			return (this->m_Data[0] == Other.m_Data[0]
+				 && this->m_Data[1] == Other.m_Data[1]
+				 && this->m_Data[2] == Other.m_Data[2]
+				 && this->m_Data[3] == Other.m_Data[3]
 			);
 		}
 		bool operator!=(const TVec4& Other) { return !(*this == Other); }
