@@ -50,7 +50,7 @@ namespace AESL { namespace Math {
 			this->X = X * Other.W + W * Other.X + Y * Other.Z - Z * Other.Y;
 			this->Y = Y * Other.W + W * Other.Y + Z * Other.X - X * Other.Z;
 			this->Z = Z * Other.W + W * Other.Z + X * Other.Y - Y * Other.X;
-			this->W = W * Other.W - X * Other.X - Y * Other.Y - Z * OTher.Z;
+			this->W = W * Other.W - X * Other.X - Y * Other.Y - Z * Other.Z;
 			return *this;
 		}
 

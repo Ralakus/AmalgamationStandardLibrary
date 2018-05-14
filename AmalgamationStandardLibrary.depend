@@ -17,15 +17,23 @@
 	"../Platform/Typedef.hpp"
 	<windows.h>
 
-1525911918 source:/home/mikhail/Code/AmalgamationStandardLibrary/Main.cpp
+1526265612 source:/home/mikhail/Code/AmalgamationStandardLibrary/Main.cpp
 	<iostream>
 	"AESL/Utilities/Log.hpp"
+	"AESL/Utilities/Random.hpp"
+	"AESL/Math/Vector/Vector4.hpp"
+	"AESL/Math/Quaternion/Quaternion.hpp"
+	"AESL/Math/Matrix/Matrix4x4.hpp"
+	"AESL/Utilities/File.hpp"
+	"AESL/Utilities/Timer.hpp"
+	"AESL/Types/Allocator.hpp"
+	"AESL/Types/Optional.hpp"
 
-1525912135 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Utilities/Log.hpp
+1526265612 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Utilities/Log.hpp
 	"../Platform/Typedef.hpp"
 	<windows.h>
 
-1525912031 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Platform/Typedef.hpp
+1526265612 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Platform/Typedef.hpp
 
 1526178974 d:\dev\git\amalgamationstandardlibrary\aesl\utilities\random.hpp
 	<string>
@@ -72,6 +80,54 @@
 	<cstring>
 
 1526268290 d:\dev\git\amalgamationstandardlibrary\aesl\types\optional.hpp
+	"../Platform/Typedef.hpp"
+	<cstring>
+
+1526265612 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Utilities/Random.hpp
+	<string>
+	<time.h>
+
+1526265612 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Math/Vector/Vector4.hpp
+	"../../Platform/Typedef.hpp"
+	<cmath>
+	"../MathDefines.hpp"
+
+1526265612 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Math/MathDefines.hpp
+
+1526265627 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Math/Quaternion/Quaternion.hpp
+	"../../Platform/Typedef.hpp"
+	"../Vector/Vector3.hpp"
+
+1526265612 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Math/Vector/Vector3.hpp
+	"../../Platform/Typedef.hpp"
+	<cmath>
+	"../MathDefines.hpp"
+
+1526265698 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Math/Matrix/Matrix4x4.hpp
+	"../../Platform/Typedef.hpp"
+	"../Vector/Vector3.hpp"
+	"../Vector/Vector4.hpp"
+	"../MathFunctions.hpp"
+	<cmath>
+	<cstring>
+
+1526265612 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Math/MathFunctions.hpp
+	"../Platform/Typedef.hpp"
+	"MathDefines.hpp"
+
+1526265846 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Utilities/File.hpp
+	<fstream>
+
+1526265612 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Utilities/Timer.hpp
+	"../Platform/Typedef.hpp"
+	<windows.h>
+	<chrono>
+
+1526265612 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Types/Allocator.hpp
+	"../Platform/Typedef.hpp"
+	<cstring>
+
+1526265612 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Types/Optional.hpp
 	"../Platform/Typedef.hpp"
 	<cstring>
 

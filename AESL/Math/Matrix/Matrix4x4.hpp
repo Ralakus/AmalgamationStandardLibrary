@@ -41,12 +41,11 @@ namespace AESL { namespace Math {
 
         FORCEINLINE TMat& Multiply(const TMat& Other){
             for(unsigned int i = 0; i < 4; i++){
-                for(unsigned int i = 0; i < 4; i++){
+                for(unsigned int j = 0; i < 4; j++){
                     (*this)[i][j] = Elements[i][0] * Other[0][j] +
                                     Elements[i][1] * Other[1][j] +
                                     Elements[i][2] * Other[2][j] +
-                                    Elements[i][3] * Other[3][j]
-                    );
+                                    Elements[i][3] * Other[3][j];
                 }
             }
             return *this;
@@ -65,7 +64,7 @@ namespace AESL { namespace Math {
             return TVector3<MathType>(
                 m_Data[0].X * Other.X + m_Data[1].X * Other.Y + m_Data[2].X * Other.Z + m_Data[3].X,
                 m_Data[0].Y * Other.X + m_Data[1].Y * Other.Y + m_Data[2].Y * Other.Z + m_Data[3].Y,
-                m_Data[0].Z * Other.X + m_Data[1].Z * Other.Y + m_Data[2].Z * Other.Z + m_Data[3].Z,
+                m_Data[0].Z * Other.X + m_Data[1].Z * Other.Y + m_Data[2].Z * Other.Z + m_Data[3].Z
             );
         }
 
@@ -110,8 +109,8 @@ namespace AESL { namespace Math {
         FORCEINLINE static TMat Perspective(float FOV, float AspectRatio, float Near, float Far){
             TMat Result(static_cast<MathType>(1));
 
-            Result.Elements[0][0] = (static_cast<MathType>(1) / tan(ToRadians<MathType>(0.5 * FOV))) / AspectRatio;
-            Result.Elements[1][1] = (static_cast<MathType>(1) / tan(ToRadians<MathType>(0.5 * FOV)));
+            Result.Elements[0][0] = (static_cast<MathType>(1) / tan(Radians<MathType>(0.5 * FOV))) / AspectRatio;
+            Result.Elements[1][1] = (static_cast<MathType>(1) / tan(Radians<MathType>(0.5 * FOV)));
             Result.Elements[2][2] = (Near + Far) / (Near - Far);
             Result.Elements[3][2] = static_cast<MathType>(-1);
             Result.Elements[2][3] = (2 * Near * Far) / (Near - Far);
@@ -122,7 +121,7 @@ namespace AESL { namespace Math {
         FORCEINLINE static TMat Rotate(float Angle, const TVector3<MathType>& Axis){
             TMat Result(static_cast<MathType>(1));
 
-            float R = toRadians(Angle);
+            float R = Radians<MathType>(Angle);
             float C = cos(R);
             float S = sin(R);
             float OMC = static_cast<MathType>(1) - C;
