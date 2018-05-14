@@ -23,6 +23,7 @@
 				<Option compiler="clang" />
 				<Compiler>
 					<Add option="-O3" />
+					<Add directory="AESL" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -36,9 +37,11 @@
 		<Linker>
 			<Add option="-m64" />
 		</Linker>
+		<Unit filename="AESL/Math/MathDefines.hpp" />
 		<Unit filename="AESL/Math/MathFunctions.hpp" />
 		<Unit filename="AESL/Math/Matrix/Matrix4x4.hpp" />
 		<Unit filename="AESL/Math/Quaternion/Quaternion.hpp" />
+		<Unit filename="AESL/Math/SIMD.hpp" />
 		<Unit filename="AESL/Math/Vector/Vector2.hpp" />
 		<Unit filename="AESL/Math/Vector/Vector3.hpp" />
 		<Unit filename="AESL/Math/Vector/Vector4.hpp" />

@@ -1,9 +1,11 @@
 # depslib dependency file v1.0
-1526087492 source:d:\dev\git\amalgamationstandardlibrary\main.cpp
+1526262179 source:d:\dev\git\amalgamationstandardlibrary\main.cpp
 	<iostream>
 	"AESL/Utilities/Log.hpp"
 	"AESL/Utilities/Random.hpp"
 	"AESL/Math/Vector/Vector4.hpp"
+	"AESL/Math/Quaternion/Quaternion.hpp"
+	"AESL/Math/Matrix/Matrix4x4.hpp"
 	"AESL/Utilities/File.hpp"
 	"AESL/Utilities/Timer.hpp"
 
@@ -23,13 +25,19 @@
 
 1525912031 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Platform/Typedef.hpp
 
-1525916362 d:\dev\git\amalgamationstandardlibrary\aesl\utilities\random.hpp
+1526178974 d:\dev\git\amalgamationstandardlibrary\aesl\utilities\random.hpp
 	<string>
 	<time.h>
 
-1526000786 d:\dev\git\amalgamationstandardlibrary\aesl\math\vector\vector3.hpp
+1526263579 d:\dev\git\amalgamationstandardlibrary\aesl\math\vector\vector3.hpp
+	"../../Platform/Typedef.hpp"
+	<cmath>
+	"../MathDefines.hpp"
 
-1526085024 d:\dev\git\amalgamationstandardlibrary\aesl\math\vector\vector4.hpp
+1526263568 d:\dev\git\amalgamationstandardlibrary\aesl\math\vector\vector4.hpp
+	"../../Platform/Typedef.hpp"
+	<cmath>
+	"../MathDefines.hpp"
 
 1526001456 d:\dev\git\amalgamationstandardlibrary\aesl\utilities\timer.hpp
 	"../Platform/Typedef.hpp"
@@ -38,4 +46,22 @@
 
 1526087481 d:\dev\git\amalgamationstandardlibrary\aesl\utilities\file.hpp
 	<fstream>
+
+1526263627 d:\dev\git\amalgamationstandardlibrary\aesl\math\quaternion\quaternion.hpp
+	"../../Platform/Typedef.hpp"
+	"../Vector/Vector3.hpp"
+
+1526258603 d:\dev\git\amalgamationstandardlibrary\aesl\math\mathdefines.hpp
+
+1526263643 d:\dev\git\amalgamationstandardlibrary\aesl\math\matrix\matrix4x4.hpp
+	"../../Platform/Typedef.hpp"
+	"../Vector/Vector3.hpp"
+	"../Vector/Vector4.hpp"
+	"../MathFunctions.hpp"
+	<cmath>
+	<cstring>
+
+1526263539 d:\dev\git\amalgamationstandardlibrary\aesl\math\mathfunctions.hpp
+	"../Platform/Typedef.hpp"
+	"MathDefines.hpp"
 

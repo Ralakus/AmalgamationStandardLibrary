@@ -2,6 +2,8 @@
 #include "AESL/Utilities/Log.hpp"
 #include "AESL/Utilities/Random.hpp"
 #include "AESL/Math/Vector/Vector4.hpp"
+#include "AESL/Math/Quaternion/Quaternion.hpp"
+#include "AESL/Math/Matrix/Matrix4x4.hpp"
 #include "AESL/Utilities/File.hpp"
 #include "AESL/Utilities/Timer.hpp"
 
