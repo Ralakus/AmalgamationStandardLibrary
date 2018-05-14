@@ -13,6 +13,8 @@ using int8   = signed char;
 using float32 = float;
 using float64 = double;
 
+using Byte = uint8;
+
 #if defined(__linux__)
     #define AE_LINUX
 
@@ -51,7 +53,8 @@ using float64 = double;
 #define LOG_SUCCESS_STR "[LOG_SUCCESS]:"
 #define LOG_STR         "[LOG]:"
 
-#define SafeDelete(x) { if(x) { delete x; x = nullptr; } }
+#define SafeDelete(x)   { if(x) { delete x; x = nullptr; } }
+#define SafeDeleteArr(x) { if(x) { delete[] x; x = nullptr; } }
 
 namespace AESL {
 	template<class Type>

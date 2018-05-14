@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1526262179 source:d:\dev\git\amalgamationstandardlibrary\main.cpp
+1526268319 source:d:\dev\git\amalgamationstandardlibrary\main.cpp
 	<iostream>
 	"AESL/Utilities/Log.hpp"
 	"AESL/Utilities/Random.hpp"
@@ -8,8 +8,10 @@
 	"AESL/Math/Matrix/Matrix4x4.hpp"
 	"AESL/Utilities/File.hpp"
 	"AESL/Utilities/Timer.hpp"
+	"AESL/Types/Allocator.hpp"
+	"AESL/Types/Optional.hpp"
 
-1526006200 d:\dev\git\amalgamationstandardlibrary\aesl\platform\typedef.hpp
+1526264407 d:\dev\git\amalgamationstandardlibrary\aesl\platform\typedef.hpp
 
 1526006285 d:\dev\git\amalgamationstandardlibrary\aesl\utilities\log.hpp
 	"../Platform/Typedef.hpp"
@@ -44,7 +46,7 @@
 	<windows.h>
 	<chrono>
 
-1526087481 d:\dev\git\amalgamationstandardlibrary\aesl\utilities\file.hpp
+1526268766 d:\dev\git\amalgamationstandardlibrary\aesl\utilities\file.hpp
 	<fstream>
 
 1526263627 d:\dev\git\amalgamationstandardlibrary\aesl\math\quaternion\quaternion.hpp
@@ -64,4 +66,12 @@
 1526263539 d:\dev\git\amalgamationstandardlibrary\aesl\math\mathfunctions.hpp
 	"../Platform/Typedef.hpp"
 	"MathDefines.hpp"
+
+1526267112 d:\dev\git\amalgamationstandardlibrary\aesl\types\allocator.hpp
+	"../Platform/Typedef.hpp"
+	<cstring>
+
+1526268290 d:\dev\git\amalgamationstandardlibrary\aesl\types\optional.hpp
+	"../Platform/Typedef.hpp"
+	<cstring>
 

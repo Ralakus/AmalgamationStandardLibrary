@@ -12,7 +12,7 @@
 				<Option type="1" />
 				<Option compiler="clang" />
 				<Compiler>
-					<Add option="-Weverything" />
+					<Add option="-Wall" />
 					<Add option="-g" />
 				</Compiler>
 			</Target>
@@ -46,7 +46,9 @@
 		<Unit filename="AESL/Math/Vector/Vector3.hpp" />
 		<Unit filename="AESL/Math/Vector/Vector4.hpp" />
 		<Unit filename="AESL/Platform/Typedef.hpp" />
+		<Unit filename="AESL/Types/Allocator.hpp" />
 		<Unit filename="AESL/Types/Noncopyable.hpp" />
+		<Unit filename="AESL/Types/Optional.hpp" />
 		<Unit filename="AESL/Types/Singleton.hpp" />
 		<Unit filename="AESL/Utilities/AessetReader.hpp" />
 		<Unit filename="AESL/Utilities/File.hpp" />

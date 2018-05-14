@@ -6,11 +6,12 @@
 #include "AESL/Math/Matrix/Matrix4x4.hpp"
 #include "AESL/Utilities/File.hpp"
 #include "AESL/Utilities/Timer.hpp"
+#include "AESL/Types/Allocator.hpp"
+#include "AESL/Types/Optional.hpp"
 
 using namespace AESL;
 
-int main()
-{
+int main() {
     float Times[25] = {};
     AE_LOG_NOTE ("Starting 25 benchmarks...");
     AE_LOG_WARNING ("SIMD optimization not confirmed!\n\n");

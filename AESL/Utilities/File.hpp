@@ -27,10 +27,18 @@ namespace AESL {
 		}
 
 		static void WriteToFile(const std::string& NameAndLocation, const std::string& Data, unsigned int Mode = std::ios::app) {
-            std::ofstream OutputFile;
-            OutputFile.open(NameAndLocation, Mode);
-            OutputFile << Data << '\n';
-            OutputFile.close();
+            static std::ofstream OutputFile;
+            static std::string LastFile = "";
+            static unsigned int LastMode = 0;
+            if(NameAndLocation == LastFile && Mode == LastMode){
+                OutputFile << Data << '\n';
+            }
+            else{
+                OutputFile.close();
+                OutputFile.open(NameAndLocation, static_cast<std::ios_base::open_mode>(Mode));
+            }
+            LastFile = NameAndLocation;
+            LastMode = Mode;
 		}
 
 	};
