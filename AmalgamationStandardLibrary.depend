@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1526268319 source:d:\dev\git\amalgamationstandardlibrary\main.cpp
+1526521176 source:d:\dev\git\amalgamationstandardlibrary\main.cpp
 	<iostream>
 	"AESL/Utilities/Log.hpp"
 	"AESL/Utilities/Random.hpp"
@@ -10,6 +10,10 @@
 	"AESL/Utilities/Timer.hpp"
 	"AESL/Types/Allocator.hpp"
 	"AESL/Types/Optional.hpp"
+	"AESL/Utilities/MainArgsParser.hpp"
+	"AESL/Event/Event.hpp"
+	"AESL/Event/EventHandler.hpp"
+	"AESL/Event/EventCallback.hpp"
 
 1526264407 d:\dev\git\amalgamationstandardlibrary\aesl\platform\typedef.hpp
 
@@ -35,7 +39,7 @@
 
 1526265612 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Platform/Typedef.hpp
 
-1526178974 d:\dev\git\amalgamationstandardlibrary\aesl\utilities\random.hpp
+1526336938 d:\dev\git\amalgamationstandardlibrary\aesl\utilities\random.hpp
 	<string>
 	<time.h>
 
@@ -54,16 +58,16 @@
 	<windows.h>
 	<chrono>
 
-1526268766 d:\dev\git\amalgamationstandardlibrary\aesl\utilities\file.hpp
+1526333538 d:\dev\git\amalgamationstandardlibrary\aesl\utilities\file.hpp
 	<fstream>
 
-1526263627 d:\dev\git\amalgamationstandardlibrary\aesl\math\quaternion\quaternion.hpp
+1526333538 d:\dev\git\amalgamationstandardlibrary\aesl\math\quaternion\quaternion.hpp
 	"../../Platform/Typedef.hpp"
 	"../Vector/Vector3.hpp"
 
 1526258603 d:\dev\git\amalgamationstandardlibrary\aesl\math\mathdefines.hpp
 
-1526263643 d:\dev\git\amalgamationstandardlibrary\aesl\math\matrix\matrix4x4.hpp
+1526333538 d:\dev\git\amalgamationstandardlibrary\aesl\math\matrix\matrix4x4.hpp
 	"../../Platform/Typedef.hpp"
 	"../Vector/Vector3.hpp"
 	"../Vector/Vector4.hpp"
@@ -130,4 +134,28 @@
 1526265612 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Types/Optional.hpp
 	"../Platform/Typedef.hpp"
 	<cstring>
+
+1526348141 d:\dev\git\amalgamationstandardlibrary\aesl\utilities\mainargsparser.hpp
+	"../Platform/Typedef.hpp"
+	"../Types/Singleton.hpp"
+	<string>
+	<vector>
+
+1525911015 d:\dev\git\amalgamationstandardlibrary\aesl\types\singleton.hpp
+	"Noncopyable.hpp"
+
+1525911013 d:\dev\git\amalgamationstandardlibrary\aesl\types\noncopyable.hpp
+
+1526520015 d:\dev\git\amalgamationstandardlibrary\aesl\event\event.hpp
+	"EventCallback.hpp"
+	<vector>
+
+1526521350 d:\dev\git\amalgamationstandardlibrary\aesl\event\eventcallback.hpp
+	"../Types/Noncopyable.hpp"
+
+1526519868 d:\dev\git\amalgamationstandardlibrary\aesl\event\eventhandler.hpp
+	"Event.hpp"
+	"../Platform/Typedef.hpp"
+	<string>
+	<unordered_map>
 

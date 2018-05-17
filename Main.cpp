@@ -8,10 +8,71 @@
 #include "AESL/Utilities/Timer.hpp"
 #include "AESL/Types/Allocator.hpp"
 #include "AESL/Types/Optional.hpp"
+#include "AESL/Utilities/MainArgsParser.hpp"
+#include "AESL/Event/Event.hpp"
+#include "AESL/Event/EventHandler.hpp"
+#include "AESL/Event/EventCallback.hpp"
+#include "AESL/Data/TypeStruct.hpp"
+#include "AESL/Data/DataMath/DVector3.hpp"
 
 using namespace AESL;
 
-int main() {
+struct ET{
+    void Print(){
+        AE_LOG_SUCCESS("Events works wtih classes!");
+    }
+};
+
+void Print(){
+    AE_LOG_SUCCESS("Events works with global!");
+}
+
+int main(int argc, char* args[]) {
+
+    std::vector<std::string> Args = MainArgsParser::Instance().ParseMainArgs(argc, args);
+
+    EventHandler TEH;
+
+    Event E;
+    TEH.RegisterEvent("Test", &E);
+
+    ET ETI;
+    EventCallback<ET> EC(&ETI, &ET::Print);
+    EventFunctionCallback EFCT(&Print);
+    TEH.RegisterCallback("Test", &EC);
+    TEH.RegisterCallback("Test", &EFCT);
+
+    TEH.TriggerEvent("Test");
+
+    if(Args.size() > 0){
+        for(size_t i = 0; i < Args.size(); i++){
+            if(Args[i] == "-print"){
+                if(i < Args.size() - 1){
+                    i++;
+                    if(Args[i] == "Easter"){
+                        AE_LOG_SUCCESS("You have found an easter egg!");
+                        std::cin.get();
+                        return 0;
+                    }
+                    else {
+                        AE_LOG_NOTE("-print overrides benchmark");
+                        AE_LOG_NOTE(Args[i].c_str());
+                        std::cin.get();
+                        return 0;
+                    }
+                }
+                else{
+                    AE_LOG_ERROR("Expected an argument after \"-print\"!");
+                    return 0;
+                }
+            }
+            else if(Args[i]=="-pause"){
+                AE_LOG_NOTE("Paused...");
+                std::cin.get();
+            }
+        }
+    }
+
     float Times[25] = {};
     AE_LOG_NOTE ("Starting 25 benchmarks...");
     AE_LOG_WARNING ("SIMD optimization not confirmed!\n\n");
@@ -21,7 +82,7 @@ int main() {
         T.Start();
 
         std::string Name = Random::Name(3, 8);
-        Math::Vector4 V = { 2 , 2 , 2, 2 };
+        Math::DVector4 V = { 2 , 2 , 2, 2 };
 
         for(float x = 1; x < 100; x++){
             for(float y = 1; y < 100; y++){

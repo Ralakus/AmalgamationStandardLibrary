@@ -59,6 +59,11 @@ namespace AESL{
             return rand() % Max + Min;
         }
 
+        static int Int(int Min, int Max){
+            RandomizeOnce();
+            return rand() % Max + Min;
+        }
+
         static bool RandomizeOnce(bool Reset = false){
             static bool m_DidRand = false;\
             if(Reset){
