@@ -36,6 +36,7 @@ namespace AESL {
             else{
                 OutputFile.close();
                 OutputFile.open(NameAndLocation, Mode);
+                OutputFile << Data << '\n';
             }
             LastFile = NameAndLocation;
             LastMode = Mode;

@@ -110,7 +110,11 @@ int main(int argc, char* args[]) {
         TotalTime += Times[i];
     }
 
+    float AvgTime = TotalTime / 25;
+
     AE_LOG_SUCCESS (("Benchmarking done in " + std::to_string(TotalTime) + " milliseconds").c_str());
+    AE_LOG_SUCCESS (("Average time " + std::to_string(AvgTime) + " milliseconds").c_str());
+    FileIO::WriteToFile("BenchmarkLog.txt", "Average Time " + std::to_string(AvgTime) + " milliseconds");
     AE_LOG_NOTE    ("Press enter to close...");
 
     std::cin.get();

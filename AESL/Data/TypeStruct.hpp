@@ -5,7 +5,6 @@ namespace AESL {
 	template<class T, unsigned long Size>
 	struct TypeStruct {
 		T Data[Size];
-		unsigned long Size;
 	};
 
 	template<class T, unsigned long Size>
