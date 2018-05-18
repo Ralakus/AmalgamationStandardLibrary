@@ -21,29 +21,18 @@
 	"../Platform/Typedef.hpp"
 	<windows.h>
 
-1526522616 source:/home/mikhail/Code/AmalgamationStandardLibrary/Main.cpp
+1526601657 source:/home/mikhail/Code/AmalgamationStandardLibrary/Main.cpp
 	<iostream>
 	"AESL/Utilities/Log.hpp"
-	"AESL/Utilities/Random.hpp"
-	"AESL/Math/Vector/Vector4.hpp"
-	"AESL/Math/Quaternion/Quaternion.hpp"
-	"AESL/Math/Matrix/Matrix4x4.hpp"
-	"AESL/Utilities/File.hpp"
-	"AESL/Utilities/Timer.hpp"
-	"AESL/Types/Allocator.hpp"
-	"AESL/Types/Optional.hpp"
 	"AESL/Utilities/MainArgsParser.hpp"
-	"AESL/Event/Event.hpp"
 	"AESL/Event/EventHandler.hpp"
-	"AESL/Event/EventCallback.hpp"
-	"AESL/Data/TypeStruct.hpp"
-	"AESL/Data/DataMath/DVector3.hpp"
+	"Benchmark.hpp"
 
-1526522616 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Utilities/Log.hpp
+1526601727 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Utilities/Log.hpp
 	"../Platform/Typedef.hpp"
 	<windows.h>
 
-1526522616 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Platform/Typedef.hpp
+1526601657 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Platform/Typedef.hpp
 
 1526336938 d:\dev\git\amalgamationstandardlibrary\aesl\utilities\random.hpp
 	<string>
@@ -93,16 +82,16 @@
 	"../Platform/Typedef.hpp"
 	<cstring>
 
-1526522616 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Utilities/Random.hpp
+1526601657 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Utilities/Random.hpp
 	<string>
 	<time.h>
 
-1526522616 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Math/Vector/Vector4.hpp
+1526601657 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Math/Vector/Vector4.hpp
 	"../../Platform/Typedef.hpp"
 	<cmath>
 	"../MathDefines.hpp"
 
-1526522616 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Math/MathDefines.hpp
+1526601657 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Math/MathDefines.hpp
 
 1526522616 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Math/Quaternion/Quaternion.hpp
 	"../../Platform/Typedef.hpp"
@@ -125,10 +114,10 @@
 	"../Platform/Typedef.hpp"
 	"MathDefines.hpp"
 
-1526522616 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Utilities/File.hpp
+1526601657 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Utilities/File.hpp
 	<fstream>
 
-1526522616 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Utilities/Timer.hpp
+1526601657 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Utilities/Timer.hpp
 	"../Platform/Typedef.hpp"
 	<windows.h>
 	<chrono>
@@ -165,34 +154,50 @@
 	<string>
 	<unordered_map>
 
-1526522616 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Utilities/MainArgsParser.hpp
+1526601657 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Utilities/MainArgsParser.hpp
 	"../Platform/Typedef.hpp"
 	"../Types/Singleton.hpp"
 	<string>
 	<vector>
 
-1526522616 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Types/Singleton.hpp
+1526601657 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Types/Singleton.hpp
 	"Noncopyable.hpp"
 
-1526522616 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Types/Noncopyable.hpp
+1526601657 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Types/Noncopyable.hpp
 
-1526522734 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Event/Event.hpp
+1526601688 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Event/Event.hpp
 	"EventCallback.hpp"
 	<vector>
 	<algorithm>
 
-1526522616 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Event/EventCallback.hpp
+1526601657 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Event/EventCallback.hpp
 	"../Types/Noncopyable.hpp"
+	<functional>
 
-1526522616 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Event/EventHandler.hpp
+1526601657 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Event/EventHandler.hpp
 	"Event.hpp"
 	"../Platform/Typedef.hpp"
 	<string>
 	<unordered_map>
 
-1526522755 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Data/TypeStruct.hpp
+1526601657 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Data/TypeStruct.hpp
 
 1526522616 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Data/DataMath/DVector3.hpp
+	"../../Math/MathDefines.hpp"
+	"../TypeStruct.hpp"
+	"../../Platform/Typedef.hpp"
+	<cmath>
+
+1526601657 /home/mikhail/Code/AmalgamationStandardLibrary/Benchmark.hpp
+	"AESL/Utilities/File.hpp"
+	"AESL/Utilities/Timer.hpp"
+	"AESL/Utilities/Log.hpp"
+	"AESL/Utilities/Random.hpp"
+	"AESL/Math/Vector/Vector4.hpp"
+	"AESL/Data/DataMath/DVector4.hpp"
+	"AESL/Event/EventHandler.hpp"
+
+1526601657 /home/mikhail/Code/AmalgamationStandardLibrary/AESL/Data/DataMath/DVector4.hpp
 	"../../Math/MathDefines.hpp"
 	"../TypeStruct.hpp"
 	"../../Platform/Typedef.hpp"

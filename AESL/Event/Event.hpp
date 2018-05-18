@@ -2,6 +2,7 @@
 
 #include "EventCallback.hpp"
 #include <vector>
+#include <algorithm>
 
 namespace AESL{
 

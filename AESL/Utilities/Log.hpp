@@ -23,7 +23,7 @@
     #define UNDL(x) "\x1B[4m" x RST
 
     #define AE_LOG(x)         printf("%s %s%s%s\n", FWHT(LOG_STR),         KWHT, x, RST)
-    #define AE_LOG_NOTE(x)    printf("%s %s%s%s\n", FWHT(LOG_NOTE_STR),    KBLU, x, RST)
+    #define AE_LOG_NOTE(x)    printf("%s %s%s%s\n", FBLU(LOG_NOTE_STR),    KBLU, x, RST)
     #define AE_LOG_ERROR(x)   printf("%s %s%s%s\n", FRED(LOG_ERROR_STR),   KRED, x, RST)
     #define AE_LOG_WARNING(x) printf("%s %s%s%s\n", FYEL(LOG_WARNING_STR), KYEL, x, RST)
     #define AE_LOG_SUCCESS(x) printf("%s %s%s%s\n", FGRN(LOG_SUCCESS_STR), KGRN, x, RST)
