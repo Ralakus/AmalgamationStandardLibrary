@@ -2,7 +2,6 @@
 
 #include "EventCallback.hpp"
 #include <vector>
-#include <algorithm>
 
 namespace AESL{
 
@@ -16,7 +15,7 @@ namespace AESL{
         ~Event() {}
 
         void AddListener(IEventCallback* Callback){
-            std::vector<IEventCallback*>::iterator Index = std::find(m_Callbacks.begin(), m_Callbacks.end(), Callback);
+            std::vector<IEventCallback*>::iterator Index = find(m_Callbacks.begin(), m_Callbacks.end(), Callback);
             if(Index != m_Callbacks.end()){
                 return;
             }

@@ -8,119 +8,141 @@
 
 namespace AESL { namespace Math {
 
-	union DataVec4 {
-		TypeStruct<MATH_TYPE, 4> Data;
-		struct { MATH_TYPE X, Y, Z, W; };
+	template<class MathType>
+	union TDataVector3 {
+		TypeStruct<MathType, 3> Data;
+		struct { MathType X, Y, Z; };
 	};
 
-	using DVector4 = DataVec4;
+	using DVector3 = TDataVector3<MATH_TYPE>;
+	using DVec3    = DVector3;
 
 	//======================================================================
 	// Simple Data Vector Math Operations
 	//======================================================================
-	FORCEINLINE DataVec4 operator + (const DataVec4& L, const DataVec4& R) {
-		return DataVec4{
-			L.X + R.X, L.Y + R.Y, L.Z + R.Z, L.W + R.W
+	template<class MathType>
+	FORCEINLINE TDataVector3<MathType> operator + (const TDataVector3<MathType>& L, const TDataVector3<MathType>& R) {
+		return TDataVector3<MathType>{
+			L.X + R.X, L.Y + R.Y, L.Z + R.Z
 		};
 	}
-	FORCEINLINE DataVec4 operator - (const DataVec4& L, const DataVec4& R) {
-		return DataVec4{
-			L.X - R.X, L.Y - R.Y, L.Z - R.Z, L.W - R.W
+	template<class MathType>
+	FORCEINLINE TDataVector3<MathType> operator - (const TDataVector3<MathType>& L, const TDataVector3<MathType>& R) {
+		return TDataVector3<MathType>{
+			L.X - R.X, L.Y - R.Y, L.Z - R.Z
 		};
 	}
-	FORCEINLINE DataVec4 operator * (const DataVec4& L, const DataVec4& R) {
-		return DataVec4{
-			L.X * R.X, L.Y * R.Y, L.Z * R.Z, L.W * R.W
+	template<class MathType>
+	FORCEINLINE TDataVector3<MathType> operator * (const TDataVector3<MathType>& L, const TDataVector3<MathType>& R) {
+		return TDataVector3<MathType>{
+			L.X * R.X, L.Y * R.Y, L.Z * R.Z
 		};
 	}
-	FORCEINLINE DataVec4 operator / (const DataVec4& L, const DataVec4& R) {
-		return DataVec4{
-			L.X / R.X, L.Y / R.Y, L.Z / R.Z, L.W / R.W
+	template<class MathType>
+	FORCEINLINE TDataVector3<MathType> operator / (const TDataVector3<MathType>& L, const TDataVector3<MathType>& R) {
+		return TDataVector3<MathType>{
+			L.X / R.X, L.Y / R.Y, L.Z / R.Z
 		};
 	}
 
 	//Scalar operations
 
-	template<class T>
-	FORCEINLINE DataVec4 operator + (const DataVec4& L, T Scalar) {
-		return DataVec4{
-			L.X + Scalar, L.Y + Scalar, L.Z + Scalar, L.W + Scalar
+	template<class T, class MathType>
+	FORCEINLINE TDataVector3<MathType> operator + (const TDataVector3<MathType>& L, T Scalar) {
+		return TDataVector3<MathType>{
+			L.X + Scalar, L.Y + Scalar, L.Z + Scalar
 		};
 	}
-	template<class T>
-	FORCEINLINE DataVec4 operator - (const DataVec4& L, T Scalar) {
-		return DataVec4{
-			L.X - Scalar, L.Y - Scalar, L.Z - Scalar, L.W - Scalar
+	template<class T, class MathType>
+	FORCEINLINE TDataVector3<MathType> operator - (const TDataVector3<MathType>& L, T Scalar) {
+		return TDataVector3<MathType>{
+			L.X - Scalar, L.Y - Scalar, L.Z - Scalar
 		};
 	}
-	template<class T>
-	FORCEINLINE DataVec4 operator * (const DataVec4& L, T Scalar) {
-		return DataVec4{
-			L.X * Scalar, L.Y * Scalar, L.Z * Scalar, L.W * Scalar
+	template<class T, class MathType>
+	FORCEINLINE TDataVector3<MathType> operator * (const TDataVector3<MathType>& L, T Scalar) {
+		return TDataVector3<MathType>{
+			L.X * Scalar, L.Y * Scalar, L.Z * Scalar
 		};
 	}
-	template<class T>
-	FORCEINLINE DataVec4 operator / (const DataVec4& L, T Scalar) {
-		return DataVec4{
-			L.X / Scalar, L.Y / Scalar, L.Z / Scalar, L.W / Scalar
+	template<class T, class MathType>
+	FORCEINLINE TDataVector3<MathType> operator / (const TDataVector3<MathType>& L, T Scalar) {
+		return TDataVector3<MathType>{
+			L.X / Scalar, L.Y / Scalar, L.Z / Scalar
 		};
 	}
 
 	//======================================================================
 	// Data Vector Data Modifying Math Operations
 	//======================================================================
-	FORCEINLINE DataVec4& operator += (DataVec4& L, const DataVec4& R) {
-		L.X += R.X; L.Y += R.Y; L.Z += R.Z; L.W += R.W;
+	template<class MathType>
+	FORCEINLINE TDataVector3<MathType>& operator += (TDataVector3<MathType>& L, const TDataVector3<MathType>& R) {
+		L.X += R.X; L.Y += R.Y; L.Z += R.Z;
 		return L;
 	}
-	FORCEINLINE DataVec4& operator -= (DataVec4& L, const DataVec4& R) {
-		L.X -= R.X; L.Y -= R.Y; L.Z -= R.Z; L.W -= R.W;
+	template<class MathType>
+	FORCEINLINE TDataVector3<MathType>& operator -= (TDataVector3<MathType>& L, const TDataVector3<MathType>& R) {
+		L.X -= R.X; L.Y -= R.Y; L.Z -= R.Z;
 		return L;
 	}
-	FORCEINLINE DataVec4& operator *= (DataVec4& L, const DataVec4& R) {
-		L.X *= R.X; L.Y *= R.Y; L.Z *= R.Z; L.W *= R.W;
+	template<class MathType>
+	FORCEINLINE TDataVector3<MathType>& operator *= (TDataVector3<MathType>& L, const TDataVector3<MathType>& R) {
+		L.X *= R.X; L.Y *= R.Y; L.Z *= R.Z;
 		return L;
 	}
-	FORCEINLINE DataVec4& operator /= (DataVec4& L, const DataVec4& R) {
-		L.X /= R.X; L.Y /= R.Y; L.Z /= R.Z; L.W /= R.W;
+	template<class MathType>
+	FORCEINLINE TDataVector3<MathType>& operator /= (TDataVector3<MathType>& L, const TDataVector3<MathType>& R) {
+		L.X /= R.X; L.Y /= R.Y; L.Z /= R.Z;
 		return L;
 	}
 
 	//Scalar operations
 
-	template<class T>
-	FORCEINLINE DataVec4& operator += (DataVec4& L, T Scalar) {
-		L.X += Scalar; L.Y += Scalar; L.Z += Scalar; L.W += Scalar;
+	template<class T, class MathType>
+	FORCEINLINE TDataVector3<MathType>& operator += (TDataVector3<MathType>& L, T Scalar) {
+		L.X += Scalar; L.Y += Scalar; L.Z += Scalar;
 		return L;
 	}
-	template<class T>
-	FORCEINLINE DataVec4& operator -= (DataVec4& L, T Scalar) {
-		L.X -= Scalar; L.Y -= Scalar; L.Z -= Scalar; L.W -= Scalar;
+	template<class T, class MathType>
+	FORCEINLINE TDataVector3<MathType>& operator -= (TDataVector3<MathType>& L, T Scalar) {
+		L.X -= Scalar; L.Y -= Scalar; L.Z -= Scalar;
 		return L;
 	}
-	template<class T>
-	FORCEINLINE DataVec4& operator *= (DataVec4& L, T Scalar) {
-		L.X *= Scalar; L.Y *= Scalar; L.Z *= Scalar; L.W *= Scalar;
+	template<class T, class MathType>
+	FORCEINLINE TDataVector3<MathType>& operator *= (TDataVector3<MathType>& L, T Scalar) {
+		L.X *= Scalar; L.Y *= Scalar; L.Z *= Scalar;
 		return L;
 	}
-	template<class T>
-	FORCEINLINE DataVec4& operator /= (DataVec4& L, T Scalar) {
-		L.X /= Scalar; L.Y /= Scalar; L.Z /= Scalar; L.W /= Scalar;
+	template<class T, class MathType>
+	FORCEINLINE TDataVector3<MathType>& operator /= (TDataVector3<MathType>& L, T Scalar) {
+		L.X /= Scalar; L.Y /= Scalar; L.Z /= Scalar;
 		return L;
 	}
 
 	//======================================================================
 	// Simple Data Vector Math Functions
 	//======================================================================
-	FORCEINLINE DataVec4 Dot(const DataVec4& L, const DataVec4& R) {
-		return { L.X * R.X + L.Y * R.Y + L.Z * R.Z + L.W * R.W };
+	template<class MathType>
+	FORCEINLINE TDataVector3<MathType> Dot(const TDataVector3<MathType>& L, const TDataVector3<MathType>& R) {
+		return { L.X * R.X + L.Y * R.Y + L.Z * R.Z };
 	}
 
-	FORCEINLINE MATH_TYPE Length(const DataVec4& Vec) {
-		return sqrt(Vec.X * Vec.X + Vec.Y * Vec.Y + Vec.Z * Vec.Z + Vec.W * Vec.W);
+	template<class MathType>
+	FORCEINLINE MATH_TYPE Length(const TDataVector3<MathType>& Vec) {
+		return sqrt(Vec.X * Vec.X + Vec.Y * Vec.Y + Vec.Z * Vec.Z );
 	}
 
-	FORCEINLINE DataVec4 Normalize(DataVec4& Vec) {
-		return { Vec /= Length(Vec) };
+	template<class MathType>
+	FORCEINLINE TDataVector3<MathType> Normalize(const TDataVector3<MathType>& Vec) {
+		return { (TDataVector3<MathType>&)Vec /= Length(Vec) };
 	}
+
+	template<class MathType>
+	FORCEINLINE TDataVector3<MathType>& Cross(TDataVector3<MathType>& Vec, const TDataVector3<MathType>& Other) {
+		Vec.X = Vec.Y * Other.Z - Vec.Z * Other.Y;
+		Vec.Y = Vec.Z * Other.X - Vec.X * Other.Z;
+		Vec.Z = Vec.X * Other.Y - Vec.Y * Other.X;
+		return Vec;
+	}
+
 } }

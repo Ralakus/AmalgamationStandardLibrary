@@ -16,12 +16,12 @@ namespace AESL {
 
 	public:
 
-		constexpr std::string ReadError = "AESSET_READ_ERROR";
+		const std::string ReadError = "AESSET_READ_ERROR";
 
 		bool LoadAeseet(const std::string& Location) {
 
 			m_LoadedFilePath = Location;
-			m_LoadedFile = File::ReadFile(Location);
+			m_LoadedFile = FileIO::ReadFile(Location);
 			m_Buffer.clear();
 			if (m_LoadedFile == "") {
 				return false;

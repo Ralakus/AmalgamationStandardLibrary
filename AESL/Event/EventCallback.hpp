@@ -2,6 +2,8 @@
 
 #include "../Types/Noncopyable.hpp"
 
+#include <functional>
+
 namespace AESL{
 
     class IEventCallback : public Noncopyable {
@@ -58,6 +60,31 @@ namespace AESL{
             return  (this->m_Function == OtherEC->m_Function);
         }
 
-    };
+	};
+
+
+
+	class EventLambdaCallback : public IEventCallback {
+
+		std::function<void()> m_Function;
+
+	public:
+		
+		template<class T>
+		EventLambdaCallback(const T& Function) : IEventCallback(), m_Function(Function) {}
+		EventLambdaCallback(const std::function<void()>& Function) : IEventCallback(), m_Function(Function) {}
+		~EventLambdaCallback() {}
+
+		virtual void operator()() override { m_Function(); };
+
+		virtual bool operator == (IEventCallback* Other) override {
+			/*EventLambdaCallback* OtherEC = dynamic_cast<EventLambdaCallback*>(Other);
+			if (OtherEC == nullptr) {
+				return false;
+			}*/
+			return  false;
+		}
+
+	};
 
 }

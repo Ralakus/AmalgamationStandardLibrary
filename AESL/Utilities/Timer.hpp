@@ -1,11 +1,14 @@
 #include "../Platform/Typedef.hpp"
 
-#if defined(AE_WINDOWS)
-    #include <windows.h>
+#if defined(AE_WINDOWS) && !defined(AE_FORCE_TIMER_CHRONO)
     #define AE_TIMER_USE_WINDOWS
+#endif // AE_Windows
+
+#if defined(AE_TIMER_USE_WINDOWS)
+    #include <windows.h>
 #else
     #include <chrono>
-#endif // AE_Windows
+#endif // AE_TIMER_USE_WINDOWS
 
 namespace AESL{
 
@@ -81,7 +84,7 @@ namespace AESL{
                 {
                     m_End = std::chrono::high_resolution_clock::now();
                 }
-                return std::chrono::duration_cast<std::chrono::milliseconds>(m_End - m_Start).count();
+                return std::chrono::duration_cast<std::chrono::microseconds>(m_End - m_Start).count() / 1000.f;
             #endif
         }
 
