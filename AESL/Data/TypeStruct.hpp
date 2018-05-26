@@ -1,10 +1,11 @@
 #pragma once
 
-namespace AESL {
+namespace Amalgamation {
 
 	template<class T, unsigned long Size>
 	struct TypeStruct {
 		T Data[Size];
+		typedef T Type;
 	};
 
 
@@ -139,5 +140,37 @@ namespace AESL {
 			Left.Data[i] /= Right;
 		}
 		return Left;
+	}
+
+	//++ && --
+
+	template<class T, unsigned long Size>
+	TypeStruct<T, Size>& operator ++ (TypeStruct<T, Size>& Left) {
+		for (unsigned long i = 0; i < Size; i++) {
+			++Left[i];
+		}
+		return Left;
+	}
+
+	template<class T, unsigned long Size>
+	TypeStruct<T, Size>& operator -- (TypeStruct<T, Size>& Left) {
+		for (unsigned long i = 0; i < Size; i++) {
+			--Left[i];
+		}
+		return Left;
+	}
+
+	template<class T, unsigned long Size>
+	TypeStruct<T, Size> operator ++ (TypeStruct<T, Size>& Left, int) {
+		TypeStruct<T, Size> TVec = Left;
+		++TVec;
+		return TVec;
+	}
+
+	template<class T, unsigned long Size>
+	TypeStruct<T, Size> operator -- (TypeStruct<T, Size>& Left, int) {
+		TypeStruct<T, Size> TVec = Left;
+		--TVec;
+		return TVec;
 	}
 }

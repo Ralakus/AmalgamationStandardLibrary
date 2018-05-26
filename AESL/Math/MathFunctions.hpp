@@ -1,9 +1,9 @@
 #pragma once
 
-#include "../Platform/Typedef.hpp"
+#include "../Platform/Platform.hpp"
 #include "MathDefines.hpp"
 
-namespace AESL { namespace Math {
+namespace Amalgamation { namespace Math {
 	template<class Type>
 	FORCEINLINE Type Lerp(const Type& Value1, const Type& Value2, float Weight) {
 		return (1 - Weight) * Value1 + Weight * Value2;

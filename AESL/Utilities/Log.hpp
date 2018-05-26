@@ -1,4 +1,4 @@
-#include "../Platform/Typedef.hpp"
+#include "../Platform/Platform.hpp"
 
 #if   defined(AE_LINUX)
 
@@ -22,24 +22,24 @@
     #define BOLD(x) "\x1B[1m" x RST
     #define UNDL(x) "\x1B[4m" x RST
 
-    #define AE_LOG(x)         printf("%s %s%s%s\n", FWHT(LOG_STR),         KWHT, x, RST)
-    #define AE_LOG_NOTE(x)    printf("%s %s%s%s\n", FBLU(LOG_NOTE_STR),    KBLU, x, RST)
-    #define AE_LOG_ERROR(x)   printf("%s %s%s%s\n", FRED(LOG_ERROR_STR),   KRED, x, RST)
-    #define AE_LOG_WARNING(x) printf("%s %s%s%s\n", FYEL(LOG_WARNING_STR), KYEL, x, RST)
-    #define AE_LOG_SUCCESS(x) printf("%s %s%s%s\n", FGRN(LOG_SUCCESS_STR), KGRN, x, RST)
+    #define AE_LOG(x)         printf("%s %s%s%s\n", FWHT(AE_LOG_STR),         KWHT, x, RST)
+    #define AE_LOG_NOTE(x)    printf("%s %s%s%s\n", FBLU(AE_LOG_NOTE_STR),    KBLU, x, RST)
+    #define AE_LOG_ERROR(x)   printf("%s %s%s%s\n", FRED(AE_LOG_ERROR_STR),   KRED, x, RST)
+    #define AE_LOG_WARNING(x) printf("%s %s%s%s\n", FYEL(AE_LOG_WARNING_STR), KYEL, x, RST)
+    #define AE_LOG_SUCCESS(x) printf("%s %s%s%s\n", FGRN(AE_LOG_SUCCESS_STR), KGRN, x, RST)
 
 #elif defined(AE_WINDOWS)
 
     #include <windows.h>
 
     #define WIN_CON_COL(color) SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
-    #define WIN_CON_RES        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+    #define WIN_CON_RES        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
 
-    #define AE_LOG(x)         WIN_CON_RES;     printf("%s %s\n", LOG_STR,         x); WIN_CON_RES
-    #define AE_LOG_NOTE(x)    WIN_CON_COL(11); printf("%s %s\n", LOG_NOTE_STR,    x); WIN_CON_RES
-    #define AE_LOG_ERROR(x)   WIN_CON_COL(12); printf("%s %s\n", LOG_ERROR_STR,   x); WIN_CON_RES
-    #define AE_LOG_WARNING(x) WIN_CON_COL(14); printf("%s %s\n", LOG_WARNING_STR, x); WIN_CON_RES
-    #define AE_LOG_SUCCESS(x) WIN_CON_COL(10); printf("%s %s\n", LOG_SUCCESS_STR, x); WIN_CON_RES
+    #define AE_LOG(x)         WIN_CON_RES;     printf("%s %s\n", AE_LOG_STR,         x); WIN_CON_RES
+    #define AE_LOG_NOTE(x)    WIN_CON_COL(11); printf("%s %s\n", AE_LOG_NOTE_STR,    x); WIN_CON_RES
+    #define AE_LOG_ERROR(x)   WIN_CON_COL(12); printf("%s %s\n", AE_LOG_ERROR_STR,   x); WIN_CON_RES
+    #define AE_LOG_WARNING(x) WIN_CON_COL(14); printf("%s %s\n", AE_LOG_WARNING_STR, x); WIN_CON_RES
+    #define AE_LOG_SUCCESS(x) WIN_CON_COL(10); printf("%s %s\n", AE_LOG_SUCCESS_STR, x); WIN_CON_RES
 
 #endif // AE_LINUX
 

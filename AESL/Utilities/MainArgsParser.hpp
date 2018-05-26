@@ -1,18 +1,20 @@
 #pragma once
 
-#include "../Platform/Typedef.hpp"
+#include "../Platform/Platform.hpp"
 #include "../Types/Singleton.hpp"
 #include <string>
 #include <vector>
 
-namespace AESL{
+namespace Amalgamation{
 
-    class MainArgsParser : public Singleton < MainArgsParser > {
+    class MainArgsParser {
 
     public:
 
         MainArgsParser()  {}
         ~MainArgsParser() {}
+
+		SINGLETON_INSTANCE(MainArgsParser);
 
         std::vector<std::string> ParseMainArgs(int Count, char* Args[]){
             std::vector<std::string> Strings;

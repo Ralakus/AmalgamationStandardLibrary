@@ -1,12 +1,12 @@
 #pragma once
 
 using uint64 = unsigned long long int;
-using uint32 = unsigned long      int;
+using uint32 = unsigned           int;
 using uint16 = unsigned short     int;
 using uint8  = unsigned char;
 
 using int64  = signed long long int;
-using int32  = signed long      int;
+using int32  = signed           int;
 using int16  = signed short     int;
 using int8   = signed char;
 
@@ -30,37 +30,51 @@ using Byte = uint8;
 #endif // __linux__
 
 #if defined(__clang__)
-	#define COMPILER_CLANG
+	#define AE_COMPILER_CLANG
 #elif defined(__GNUC__) || defined(__GNUG__)
-	#define COMPILER_GCC
+	#define AE_COMPILER_GCC
 #elif defined(_MSC_VER)
-	#define COMPILER_MSVC
+	#define AE_COMPILER_MSVC
 #else
-	#define COMPILER_OTHER
+	#define AE_COMPILER_OTHER
 #endif
 
-#ifdef COMPILER_MSVC
+#ifdef AE_COMPILER_MSVC
 	#define FORCEINLINE __forceinline
-#elif defined(COMPILER_GCC) || defined(COMPILER_CLANG)
+#elif defined(AE_COMPILER_GCC) || defined(AE_COMPILER_CLANG)
 	#define FORCEINLINE inline __attribute__ ((always_inline))
 #else
 	#define FORCEINLINE inline
 #endif
 
-#define LOG_NOTE_STR     "[LOG_NOTE]:"
-#define LOG_ERROR_STR   "[LOG_ERROR]:"
-#define LOG_WARNING_STR "[LOG_WARNING]:"
-#define LOG_SUCCESS_STR "[LOG_SUCCESS]:"
-#define LOG_STR         "[LOG]:"
+#ifdef AE_COMPILER_MSVC
+	#define FORCENOINLINE __declspec(noinline)
+#elif defined(AE_COMPILER_GCC) || defined(AE_COMPILER_CLANG)
+	#define FORCENOINLINE __attribute__(( noinline ))
+#else
+	#define FORCENOINLINE
+#endif
+
+#define AE_LOG_NOTE_STR    "[LOG_NOTE]:"
+#define AE_LOG_ERROR_STR   "[LOG_ERROR]:"
+#define AE_LOG_WARNING_STR "[LOG_WARNING]:"
+#define AE_LOG_SUCCESS_STR "[LOG_SUCCESS]:"
+#define AE_LOG_STR         "[LOG]:"
 
 #define SafeDelete(x)   { if(x) { delete x; x = nullptr; } }
 #define SafeDeleteArr(x) { if(x) { delete[] x; x = nullptr; } }
 
-namespace AESL {
+namespace Amalgamation {
 	template<class Type>
 	struct IsPointer { static const bool Value = false; };
 	template<class Type>
 	struct IsPointer<Type*> { static const bool Value = true; };
+
+	template<class Type1, class Type2>
+	struct IsEqual { static const bool Value = false; };
+	template<class Type>
+	struct IsEqual<Type, Type> { static const bool Value = true; };
+
 	class Error {
 		const char* Message;
 	public:

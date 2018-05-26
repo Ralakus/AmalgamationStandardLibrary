@@ -1,46 +1,36 @@
 #pragma once
 
+#include "../Platform/Platform.hpp"
 #include <fstream>
 
-namespace AESL {
+namespace Amalgamation {
 
-	class FileIO {
+	class File {
+
+		friend class Aesset;
+
+		std::string m_File;
+		std::string m_LoadedContent;
+		std::fstream m_Stream;
 
 	public:
 
-		static std::string ReadFile(const std::string& filepath) {
-			std::ifstream ifs((filepath).c_str());
-			std::string content(
-				std::istreambuf_iterator<char>(ifs.rdbuf()),
-				std::istreambuf_iterator<char>()
-			);
-			return content;
-		}
+		FORCEINLINE File();
+		FORCEINLINE File(const std::string& FilePath, unsigned int Mode = std::ios::in | std::ios::out | std::ios::app);
+		FORCEINLINE ~File();
 
-		static std::string ReadFile(const char* filepath) {
-			std::ifstream ifs(filepath);
-			std::string content(
-				std::istreambuf_iterator<char>(ifs.rdbuf()),
-				std::istreambuf_iterator<char>()
-			);
-			return content;
-		}
+		FORCEINLINE void LoadFile(const std::string& FileName, unsigned int Mode = std::ios::in | std::ios::out | std::ios::app);
 
-		static void WriteToFile(const std::string& NameAndLocation, const std::string& Data, std::ios_base::openmode Mode = std::ios::app) {
-            static std::ofstream OutputFile;
-            static std::string LastFile = "";
-            static std::ios_base::openmode LastMode = std::ios::app;
-            if(NameAndLocation == LastFile && Mode == LastMode){
-                OutputFile << Data << '\n';
-            }
-            else{
-                OutputFile.close();
-                OutputFile.open(NameAndLocation, Mode);
-            }
-            LastFile = NameAndLocation;
-            LastMode = Mode;
-		}
+		FORCEINLINE const std::string& GetContent() const;
+
+		FORCEINLINE const std::string& LoadAndGetContents(const std::string& FileName, unsigned int Mode = std::ios::in | std::ios::out | std::ios::app);
+
+		FORCEINLINE void Write(const std::string& Data);
+
+		FORCEINLINE void Close();
 
 	};
 
 }
+
+#include "File.inl"

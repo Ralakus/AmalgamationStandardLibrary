@@ -1,14 +1,14 @@
 #define MATH_TYPE float
 
-#define AE_FORCE_TIMER_CHRONO
 #include <iostream>
 #include "AESL/Utilities/Log.hpp"
 #include "AESL/Utilities/MainArgsParser.hpp"
 #include "AESL/Event/EventHandler.hpp"
+#include "AESL/Task/ThreadPool.hpp"
 
 #include "Benchmark.hpp"
 
-using namespace AESL;
+using namespace Amalgamation;
 
 int main(int argc, char* args[]) {
     std::vector<std::string> Args = MainArgsParser::Instance().ParseMainArgs(argc, args);
@@ -47,16 +47,19 @@ int main(int argc, char* args[]) {
                 AE_LOG_NOTE("Paused...");
                 std::cin.get();
             }
-			else if (Args[i] == "-benchmark") {
+			/*else if (Args[i] == "-benchmark") {
 				EventSystem.TriggerEvent("StartMath");
-			}
+			}*/
         }
     }
 	else {
 		AE_LOG_ERROR("Enter \"-benchmark\" as argument to run math benchmark otherwise nothing will happen");
 	}
 
+	EventSystem.TriggerEvent("StartMath");
+
     AE_LOG_NOTE("Press enter to close...");
+
 
     std::cin.get();
 	return 0;

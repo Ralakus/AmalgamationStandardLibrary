@@ -2,11 +2,11 @@
 
 #include "../../Math/MathDefines.hpp"
 #include "../TypeStruct.hpp"
-#include "../../Platform/Typedef.hpp"
+#include "../../Platform/Platform.hpp"
 
 #include <cmath>
 
-namespace AESL { namespace Math {
+namespace Amalgamation { namespace Math {
 
 	template<class MathType>
 	union TDataVector4 {
@@ -134,7 +134,7 @@ namespace AESL { namespace Math {
 
 	template<class MathType>
 	FORCEINLINE TDataVector4<MathType> Normalize(const TDataVector4<MathType>& Vec) {
-		return { (TDataVector4<MathType>&)Vec /= Length(Vec) };
+		return { const_cast<TDataVector4<MathType>&>(Vec) /= Length(Vec) };
 	}
 
 } }

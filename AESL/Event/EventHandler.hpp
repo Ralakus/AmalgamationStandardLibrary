@@ -1,37 +1,26 @@
 #pragma once
 
+#include "../Platform/Platform.hpp"
 #include "Event.hpp"
-#include "../Platform/Typedef.hpp"
 #include <string>
 #include <unordered_map>
 
-namespace AESL{
+namespace Amalgamation{
     class EventHandler {
+
+	protected:
 
         std::unordered_map<std::string, Event*> m_Events;
 
     public:
 
-        EventHandler() {}
-        virtual ~EventHandler() {}
+		EventHandler();
+		virtual ~EventHandler();
 
-        virtual void RegisterCallback(const std::string& Name, IEventCallback* Callback) {
-            if(m_Events.count(Name) < 1){
-                return;
-            }
-            else{
-                m_Events[Name]->AddListener(Callback);
-            }
-        }
-        virtual void RegisterEvent(const std::string& Name, Event* Event){
-            if(m_Events.count(Name) < 1){
-                m_Events[Name] = Event;
-            }
-        }
-        virtual void TriggerEvent(const std::string& Name){
-            if(m_Events.count(Name) > 0){
-                m_Events[Name]->Trigger();
-            }
-        }
+		FORCEINLINE void RegisterCallback(const std::string& Name, IEventCallback* Callback);
+		FORCEINLINE void RegisterEvent(const std::string& Name, Event* EventPtr);
+		FORCEINLINE void TriggerEvent(const std::string& Name);
+		FORCEINLINE void DeregisterCallback(IEventCallback* Callback);
     };
 }
+#include "EventHandler.inl"
